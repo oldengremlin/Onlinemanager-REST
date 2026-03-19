@@ -5,6 +5,7 @@
 *.config.*
 *.key
 README
+onlinemanager-rest
 
 # Compiled class file
 *.class
