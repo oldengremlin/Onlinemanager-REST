@@ -1,3 +1,11 @@
+*.properties
+*.txt
+*.gz
+*.sh
+*.config.*
+*.key
+README
+
 # Compiled class file
 *.class
 
