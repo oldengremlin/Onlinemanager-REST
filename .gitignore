@@ -5,8 +5,19 @@
 *.config.*
 *.key
 README
-onlinemanager-rest
 
+# Docker-образи та архіви
+*.tar
+*.img
+*.jar
+*.war
+*.ear
+
+# Тимчасові файли
+*.tmp
+*.bak
+*.swp
+.DS_Store
 # Compiled class file
 *.class
 
