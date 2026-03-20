@@ -73,6 +73,8 @@
               <hideMethodParams>true</hideMethodParams>
               <useShortClassNames>true</useShortClassNames>
               <useShortClassNamesInFieldsAndMethods>true</useShortClassNamesInFieldsAndMethods>
+              <enableAsciidocWrapper>true</enableAsciidocWrapper>
+              <enableMarkdownWrapper>true</enableMarkdownWrapper>
               <blacklistRegexp>.*BeanInfo.*</blacklistRegexp>
               <fieldBlacklistRegexp>.*jLabel.*|.*jPanel.*|.*jTextField.*|.*jTextPane.*|.*jButton.*|.*jScroll.*|.*jTable.*|.*jMenu.*|.*jSeparator.*|.*jPassword.*|.*jCheck.*|.*jCombo.*|.*jFormatt.*</fieldBlacklistRegexp>
             </configuration>
