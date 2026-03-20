@@ -16,6 +16,8 @@ RUN mvn clean package -DskipTests
 # Фінальний образ — легкий runtime
 FROM eclipse-temurin:24-jre
 
+RUN /usr/bin/apt update && /usr/bin/apt install curl -y
+
 WORKDIR /app
 
 # Копіюємо тільки готовий JAR
@@ -29,4 +31,4 @@ COPY --from=builder /app/target/OnlinemanagerREST-1.0.0-all.jar app.jar
 EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
 
-
+HEALTHCHECK --interval=60s --timeout=5s CMD curl -f http://localhost:8080/hello || exit 1
