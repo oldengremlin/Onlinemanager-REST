@@ -126,3 +126,7 @@ docker load -i onlinemanager-rest~latest.tar
 ( curl -svX POST https://YOU_REST_DOMAIN/getacctstoptimecandidate -d "starttime=2026-03-05+10:49:10&username=dhcp_xe-0/0/3:1630@r418-1&ip=212.90.172.135" -H "Authorization: Bearer $( curl -sX POST https://YOU_REST_DOMAIN/login -d "username=YOU_USERNAME&password=YOU_PASSWORD" )" | jq . ) 2>&1 | less
 ( curl -svX POST https://YOU_REST_DOMAIN/correctionacctstoptime -d "id=18113341&stoptime=2026-03-05+18:35:42" -H "Authorization: Bearer $( curl -sX POST https://YOU_REST_DOMAIN/login -d "username=YOU_USERNAME&password=YOU_PASSWORD" )"
 ```
+
+# Architecture
+
+![Onlinemanager REST Overview](docs/plantuml/rest-overview.svg)
