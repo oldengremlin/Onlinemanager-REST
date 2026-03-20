@@ -1,96 +1,6 @@
 @startuml
 
-class net.ukrcom.onlinemanagerrest.Handler.Hello {
-	{method} +handle ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.Handler.Login {
-	{method} +handle ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.Handler.Logout {
-	{method} +handle ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.Handler.correctionAcctStopTime {
-	{method} +handle ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.Handler.getAcctStopTimeCandidate {
-	{method} +handle ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.Handler.getData {
-	{method} +handle ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.Handler.getDuplicate {
-	{method} +handle ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.Handler.getDuplicateSessions {
-	{method} +handle ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.Helpers {
-	{field} {static} +logger : org.slf4j.Logger
-	{method}  {static} +checkAuth ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : boolean
-	{method}  {static} +extractToken ( paramString1 : String ) : String
-	{method}  {static} +localLog ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange , paramString2 : String ) : void
-	{method}  {static} +sendResponse ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange , paramint2 : int , paramString3 : String ) : void
-	{method}  {static} +sendUnifiedResponse ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange , paramint2 : int , paramString3 : String , paramObject4 : Object , paramString5 : String ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.HtpasswdVerifier {
-	{field} -htpasswdPath : java.nio.file.Path
-	{method} +authenticate ( paramString1 : String , paramString2 : String ) : boolean
-	{method} -verifyPassword ( paramString1 : String , paramString2 : String ) : boolean
-	{method}  {static} -verifySha1 ( paramString1 : String , paramString2 : String ) : boolean
-}
-
-
-class net.ukrcom.onlinemanagerrest.OnlinemanagerREST {
-	{method}  {static} +main ( paramString;1 : [Ljava.lang.String; ) : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.ParseParams {
-	{method}  {static} +getFormParams ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : java.util.Map
-	{method}  {static} +getQueryParams ( paramHttpExchange1 : com.sun.net.httpserver.HttpExchange ) : java.util.Map
-}
-
-
-class net.ukrcom.onlinemanagerrest.RadiusData {
-	{field} #con : java.sql.Connection
-	{field} #databaseName : String
-	{field} #password : String
-	{field} {static} -semaphore : java.util.concurrent.Semaphore
-	{field} #serverName : String
-	{field} #statement : java.sql.Statement
-	{field} #username : String
-	{method} +closeConnections () : void
-	{method} +correctionAcctStopTime ( paramLong1 : Long , paramString2 : String ) : boolean
-	{method} +getAcctStopTimeCandidate ( paramString1 : String , paramString2 : String , paramString3 : String ) : java.util.List
-	{method} +getData ( paramint1 : int , paramboolean2 : boolean , paramint3 : int , paramString4 : String , paramString5 : String ) : java.util.List
-	{method} +getDuplicateData () : java.util.List
-	{method} +getDuplicateSessions ( paramString1 : String ) : java.util.List
-	{method} -init () : void
-	{method} -printPreparedSql ( paramPreparedStatement1 : java.sql.PreparedStatement ) : void
-	{method} -printSql ( paramString1 : String ) : void
-	{method} +reinit () : void
-}
-
-
-class net.ukrcom.onlinemanagerrest.RadiusData$AcctStopTimeCandidate {
+class AcctStopTimeCandidate {
 	{field} -acctstarttime : String
 	{field} -acctstoptime_candidate : String
 	{method} +acctstarttime () : String
@@ -101,7 +11,7 @@ class net.ukrcom.onlinemanagerrest.RadiusData$AcctStopTimeCandidate {
 }
 
 
-class net.ukrcom.onlinemanagerrest.RadiusData$DuplicateDataRow {
+class DuplicateDataRow {
 	{field} -count : int
 	{field} -username : String
 	{method} +count () : int
@@ -112,7 +22,7 @@ class net.ukrcom.onlinemanagerrest.RadiusData$DuplicateDataRow {
 }
 
 
-class net.ukrcom.onlinemanagerrest.RadiusData$DuplicateSessionRow {
+class DuplicateSessionRow {
 	{field} -acctstarttime : String
 	{field} -acctupdatetime : String
 	{field} -framedipaddress : String
@@ -127,7 +37,72 @@ class net.ukrcom.onlinemanagerrest.RadiusData$DuplicateSessionRow {
 }
 
 
-class net.ukrcom.onlinemanagerrest.RadiusData$SessionRow {
+class Hello {
+	{method} +handle ( paramHttpExchange1 : HttpExchange ) : void
+}
+
+
+class Helpers {
+	{field} {static} +logger : Logger
+	{method}  {static} +checkAuth ( paramHttpExchange1 : HttpExchange ) : boolean
+	{method}  {static} +extractToken ( paramString1 : String ) : String
+	{method}  {static} +localLog ( paramHttpExchange1 : HttpExchange , paramString2 : String ) : void
+	{method}  {static} +sendResponse ( paramHttpExchange1 : HttpExchange , paramint2 : int , paramString3 : String ) : void
+	{method}  {static} +sendUnifiedResponse ( paramHttpExchange1 : HttpExchange , paramint2 : int , paramString3 : String , paramObject4 : Object , paramString5 : String ) : void
+}
+
+
+class HtpasswdVerifier {
+	{field} -htpasswdPath : Path
+	{method} +authenticate ( paramString1 : String , paramString2 : String ) : boolean
+	{method} -verifyPassword ( paramString1 : String , paramString2 : String ) : boolean
+	{method}  {static} -verifySha1 ( paramString1 : String , paramString2 : String ) : boolean
+}
+
+
+class Login {
+	{method} +handle ( paramHttpExchange1 : HttpExchange ) : void
+}
+
+
+class Logout {
+	{method} +handle ( paramHttpExchange1 : HttpExchange ) : void
+}
+
+
+class OnlinemanagerREST {
+	{method}  {static} +main ( paramString;1 : String[] ) : void
+}
+
+
+class ParseParams {
+	{method}  {static} +getFormParams ( paramHttpExchange1 : HttpExchange ) : Map
+	{method}  {static} +getQueryParams ( paramHttpExchange1 : HttpExchange ) : Map
+}
+
+
+class RadiusData {
+	{field} #con : Connection
+	{field} #databaseName : String
+	{field} #password : String
+	{field} {static} -semaphore : Semaphore
+	{field} #serverName : String
+	{field} #statement : Statement
+	{field} #username : String
+	{method} +closeConnections () : void
+	{method} +correctionAcctStopTime ( paramLong1 : Long , paramString2 : String ) : boolean
+	{method} +getAcctStopTimeCandidate ( paramString1 : String , paramString2 : String , paramString3 : String ) : List
+	{method} +getData ( paramint1 : int , paramboolean2 : boolean , paramint3 : int , paramString4 : String , paramString5 : String ) : List
+	{method} +getDuplicateData () : List
+	{method} +getDuplicateSessions ( paramString1 : String ) : List
+	{method} -init () : void
+	{method} -printPreparedSql ( paramPreparedStatement1 : PreparedStatement ) : void
+	{method} -printSql ( paramString1 : String ) : void
+	{method} +reinit () : void
+}
+
+
+class SessionRow {
 	{field} -acctstarttime : String
 	{field} -acctstoptime : String
 	{field} -acctupdatetime : String
@@ -158,16 +133,41 @@ class net.ukrcom.onlinemanagerrest.RadiusData$SessionRow {
 }
 
 
-class net.ukrcom.onlinemanagerrest.TokenManager {
+class TokenManager {
 	{field} {static} -TOKEN_EXPIRY_MS : long
-	{field} {static} -tokens : java.util.Map
+	{field} {static} -tokens : Map
 	{method}  {static} +generateToken ( paramString1 : String , paramString2 : String ) : String
 	{method}  {static} +invalidateToken ( paramString1 : String ) : void
 	{method}  {static} +isValidToken ( paramString1 : String ) : boolean
 }
 
 
-class net.ukrcom.onlinemanagerrest.jConfig {
+class correctionAcctStopTime {
+	{method} +handle ( paramHttpExchange1 : HttpExchange ) : void
+}
+
+
+class getAcctStopTimeCandidate {
+	{method} +handle ( paramHttpExchange1 : HttpExchange ) : void
+}
+
+
+class getData {
+	{method} +handle ( paramHttpExchange1 : HttpExchange ) : void
+}
+
+
+class getDuplicate {
+	{method} +handle ( paramHttpExchange1 : HttpExchange ) : void
+}
+
+
+class getDuplicateSessions {
+	{method} +handle ( paramHttpExchange1 : HttpExchange ) : void
+}
+
+
+class jConfig {
 	{field} +databaseName : String
 	{field} +password : String
 	{field} +serverName : String
@@ -175,23 +175,23 @@ class net.ukrcom.onlinemanagerrest.jConfig {
 }
 
 
-class net.ukrcom.onlinemanagerrest.jConfigSerializing {
-	{field} -configFile : java.io.File
+class jConfigSerializing {
+	{field} -configFile : File
 	{field} +htpasswdName : String
 	{field} +xmlName : String
-	{method} +findFilePath ( paramString1 : String ) : java.nio.file.Path
-	{method} -getConfigFilePath () : java.nio.file.Path
-	{method} +getCurrentConfigFile () : java.io.File
-	{method} +load () : net.ukrcom.onlinemanagerrest.jConfig
-	{method} +resolveHtpasswdPath () : java.nio.file.Path
-	{method} +save ( paramjConfig1 : net.ukrcom.onlinemanagerrest.jConfig ) : void
+	{method} +findFilePath ( paramString1 : String ) : Path
+	{method} -getConfigFilePath () : Path
+	{method} +getCurrentConfigFile () : File
+	{method} +load () : jConfig
+	{method} +resolveHtpasswdPath () : Path
+	{method} +save ( paramjConfig1 : jConfig ) : void
 }
 
 
 
 
-net.ukrcom.onlinemanagerrest.RadiusData -->  net.ukrcom.onlinemanagerrest.RadiusData : instance
-net.ukrcom.onlinemanagerrest.RadiusData -->  net.ukrcom.onlinemanagerrest.jConfig : config
+RadiusData -->  RadiusData : instance
+RadiusData -->  jConfig : config
 
 
 @enduml
